@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[TaoHaoGe` blog]]></title>
+  <subtitle><![CDATA[share]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://taohaoge.github.io/"/>
+  <updated>2015-11-28T10:00:13.000Z</updated>
+  <id>http://taohaoge.github.io/</id>
+  
+  <author>
+    <name><![CDATA[TaoHaoGe]]></name>
+    <email><![CDATA[taohaoge@qq.com]]></email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[代码整洁之道笔记]]></title>
+    <link href="http://taohaoge.github.io/2014/12/30/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E7%AC%94%E8%AE%B0/"/>
+    <id>http://taohaoge.github.io/2014/12/30/代码整洁之道笔记/</id>
+    <published>2014-12-30T02:37:23.000Z</published>
+    <updated>2015-11-28T10:00:13.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="有意义的命名">有意义的命名</h4><p>变量,函数或类的名称应该已经答复了所有的大问题,他告诉你,它为什么会存在,它做什么事,应该怎么用.如果名称需要注释或者补充,那就不算是名副其实了.</p>
+<p>代码体现意图<br>相应的代码精简<br>尽量不要加注释</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="有意义的命名">有意义的命名</h4><p>变量,函数或类的名称应该已经答复了所有的大问题,他告诉你,它为什么会存在,它做什么事,应该怎么用.如果名称需要注释或者补充,那就不算是名副其实了.</p>
+<p>代码体现意图<br>相应的代码精简<br>尽量不要加注释<]]>
+    </summary>
+    
+      <category term="代码" scheme="http://taohaoge.github.io/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="整洁" scheme="http://taohaoge.github.io/tags/%E6%95%B4%E6%B4%81/"/>
+    
+      <category term="代码" scheme="http://taohaoge.github.io/categories/%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[bash-外部过滤器,程序和命令]]></title>
+    <link href="http://taohaoge.github.io/2014/12/26/bash-%E5%A4%96%E9%83%A8%E8%BF%87%E6%BB%A4%E5%99%A8-%E7%A8%8B%E5%BA%8F%E5%92%8C%E5%91%BD%E4%BB%A4/"/>
+    <id>http://taohaoge.github.io/2014/12/26/bash-外部过滤器-程序和命令/</id>
+    <published>2014-12-26T01:08:11.000Z</published>
+    <updated>2015-11-28T10:00:13.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="基本命令">基本命令</h4><ul>
+<li>ls</li>
+<li>cat,tac</li>
+<li>tr a-z A-Z</li>
+<li>rev</li>
+<li>cp</li>
+<li>mv</li>
+<li>rm</li>
+<li>rmdir</li>
+<li>mkdir</li>
+<li>chmod</li>
+<li>chattr<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr +i filename #&#20351;&#25991;&#20214;&#34987;&#26631;&#35760;&#20026;&#27704;&#36828;&#19981;&#21464;&#10;chattr +s filename #&#19981;&#33021;&#34987;&#21024;&#38500;,safe&#10;chattr +c filename #&#33258;&#21160;&#21387;&#32553;,&#35835;&#21462;&#26102;&#33258;&#21160;&#35299;&#21387;&#32553;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>ln<br>-s软链接必须使用<code>绝对路径</code></li>
+<li>man,info</li>
+</ul>
+<h4 id="复杂命令">复杂命令</h4><ul>
+<li>find<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-exec COMMAND \;&#10;find ~/ -name &#34;*.txt&#34;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果command中包含{},那么find命令会将匹配的结果替换掉{}<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#20174;&#29992;&#25143;&#30340;home&#30446;&#24405;&#20013;&#21024;&#38500;&#25152;&#26377;&#30340;corm dump &#25991;&#20214;&#10;find ~/ -name &#39;core*&#39; -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure></p>
+<p><strong>关于文件时间属性的操作</strong><br>mtime = last modificatiuon time of file<br>ctime = last status change time<br>atime = last access time<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#21015;&#20986;&#26368;&#21518;&#19968;&#22825;&#20462;&#25913;&#30340;&#25991;&#20214;&#10;find /home -mtime 1</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>xargs<br>xargs 的默认命令是 echo. 这意味着通过管道传递给 xargs 的输入将会包含换行和空白, 不过通过 xargs 的处理, 换行和空白将被空格取代.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.&#24403;&#20320;&#23581;&#35797;&#29992;rm &#21024;&#38500;&#22826;&#22810;&#30340;&#25991;&#20214;&#65292;&#20320;&#21487;&#33021;&#24471;&#21040;&#19968;&#20010;&#38169;&#35823;&#20449;&#24687;&#65306;/bin/rm Argument list too long. &#29992;xargs &#21435;&#36991;&#20813;&#36825;&#20010;&#38382;&#39064;&#10;find ~ -name &#8216;*.log&#8217; -print0 | xargs -0 rm -f&#10;2.&#33719;&#24471;/etc/ &#19979;&#25152;&#26377;*.conf &#32467;&#23614;&#30340;&#25991;&#20214;&#21015;&#34920;&#65292;&#26377;&#20960;&#31181;&#19981;&#21516;&#30340;&#26041;&#27861;&#33021;&#24471;&#21040;&#30456;&#21516;&#30340;&#32467;&#26524;&#65292;&#19979;&#38754;&#30340;&#20363;&#23376;&#20165;&#20165;&#26159;&#31034;&#33539;&#24590;&#20040;&#23454;&#29992;xargs &#65292;&#22312;&#36825;&#20010;&#20363;&#23376;&#20013;&#23454;&#29992; xargs&#23558;find &#21629;&#20196;&#30340;&#36755;&#20986;&#20256;&#36882;&#32473;ls -l&#10;# find /etc -name &#34;*.conf&#34; | xargs ls &#8211;l&#10;3.&#20551;&#22914;&#20320;&#26377;&#19968;&#20010;&#25991;&#20214;&#21253;&#21547;&#20102;&#24456;&#22810;&#20320;&#24076;&#26395;&#19979;&#36733;&#30340;URL, &#20320;&#33021;&#22815;&#20351;&#29992;xargs &#19979;&#36733;&#25152;&#26377;&#38142;&#25509;&#10;# cat url-list.txt | xargs wget &#8211;c&#10;4.&#26597;&#25214;&#25152;&#26377;&#30340;jpg &#25991;&#20214;&#65292;&#24182;&#19988;&#21387;&#32553;&#23427;&#10;# find / -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz&#10;5.&#25335;&#36125;&#25152;&#26377;&#30340;&#22270;&#29255;&#25991;&#20214;&#21040;&#19968;&#20010;&#22806;&#37096;&#30340;&#30828;&#30424;&#39537;&#21160; &#10;# ls *.jpg | xargs -n1 -i cp &#123;&#125; /external-hard-drive/directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>expr</p>
+</li>
+</ul>
+<h4 id="时间日期">时间日期</h4><ul>
+<li>date</li>
+<li>zdump 查看特定地区当前时间</li>
+<li>touch</li>
+<li>at</li>
+<li>batch</li>
+<li>cal</li>
+<li>sleep</li>
+<li>usleep</li>
+<li>hwclock,clock</li>
+</ul>
+<h4 id="文本处理">文本处理</h4><ul>
+<li>sort</li>
+<li>tsort 拓扑排序</li>
+<li>uniq</li>
+<li>expand,unexpand</li>
+<li>cut</li>
+<li>paste</li>
+<li>join</li>
+<li>head</li>
+<li>tail</li>
+<li>grep</li>
+<li>sed</li>
+<li>awk</li>
+<li>wc</li>
+<li>fold</li>
+<li>fmt</li>
+<li>col</li>
+<li>column</li>
+<li>colrm</li>
+<li>nl</li>
+<li>pr</li>
+<li>iconv</li>
+<li>recode</li>
+</ul>
+<h4 id="文件与归档">文件与归档</h4><ul>
+<li>tar</li>
+<li>shar</li>
+<li>ar</li>
+<li>rpm</li>
+<li>gizp</li>
+<li>file</li>
+<li>whic</li>
+<li>whereis</li>
+<li>whatis</li>
+<li>vdir</li>
+<li>diff</li>
+<li>path</li>
+<li>diff3</li>
+<li>cmp</li>
+<li>comm 多功能的文件比较工具</li>
+<li>basename</li>
+<li>dirname</li>
+<li>split</li>
+<li>csplit</li>
+<li>sum,cksum,md5sum,sha1sum</li>
+<li>shared 用随机字符填充文件,使得文件无法被恢复</li>
+<li>crypt</li>
+<li>mktemp</li>
+<li>dos2unix</li>
+<li>ptx</li>
+<li>more,less</li>
+</ul>
+<h4 id="通讯命令">通讯命令</h4><ul>
+<li>host</li>
+<li>lookup</li>
+<li>ipcalc</li>
+<li>nsloopup</li>
+<li>dig</li>
+<li>whois</li>
+<li>finger</li>
+<li>chfn</li>
+<li>vrfy</li>
+<li>sx,rx</li>
+<li>sz,rz</li>
+<li>ftp</li>
+<li>uucp,uux,cu</li>
+<li>telnet</li>
+<li>wget</li>
+<li>curl</li>
+<li>lynx</li>
+<li>rcp</li>
+<li>rsync</li>
+<li>scp</li>
+<li>write</li>
+<li>netconfig</li>
+<li>mail</li>
+</ul>
+<h4 id="终端控制">终端控制</h4><ul>
+<li>tput</li>
+<li>infocmp</li>
+<li>reset,clear</li>
+<li>script</li>
+</ul>
+<h4 id="数学运算">数学运算</h4><ul>
+<li>factor 将一个正数分解为多个素数</li>
+<li>bc 可以处理浮点数</li>
+</ul>
+<h4 id="混杂命令">混杂命令</h4><ul>
+<li>jot,seq</li>
+<li>getopt</li>
+<li>run-parts</li>
+<li>yes</li>
+<li>banner</li>
+<li>printenv</li>
+<li>lp</li>
+<li>tee</li>
+<li>mkfifo</li>
+<li>pathchk</li>
+<li>dd</li>
+<li>od</li>
+<li>hexdump</li>
+<li>objdump</li>
+<li>mcookie</li>
+<li>units</li>
+<li>m4</li>
+<li>doexec</li>
+<li>dialog</li>
+<li>sox</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="基本命令">基本命令</h4><ul>
+<li>ls</li>
+<li>cat,tac</li>
+<li>tr a-z A-Z</li>
+<li>rev</li>
+<li>cp</li>
+<li>mv</li>
+<li>rm</li>
+<li>rmdir</li>
+<li>mkdir</li>
+<li>chmod</li>
+<li>chattr<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr +i filename #&#20351;&#25991;&#20214;&#34987;&#26631;&#35760;&#20026;&#27704;&#36828;&#19981;&#21464;&#10;chattr +s filename #&#19981;&#33021;&#34987;&#21024;&#38500;,safe&#10;chattr +c filename #&#33258;&#21160;&#21387;&#32553;,&#35835;&#21462;&#26102;&#33258;&#21160;&#35299;&#21387;&#32553;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+      <category term="bash" scheme="http://taohaoge.github.io/tags/bash/"/>
+    
+      <category term="命令" scheme="http://taohaoge.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+      <category term="外部过滤器" scheme="http://taohaoge.github.io/tags/%E5%A4%96%E9%83%A8%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    
+      <category term="程序" scheme="http://taohaoge.github.io/tags/%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="bash" scheme="http://taohaoge.github.io/categories/bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[bash-简单递归]]></title>
+    <link href="http://taohaoge.github.io/2014/12/25/bash-%E7%AE%80%E5%8D%95%E9%80%92%E5%BD%92/"/>
+    <id>http://taohaoge.github.io/2014/12/25/bash-简单递归/</id>
+    <published>2014-12-25T12:55:36.000Z</published>
+    <updated>2015-11-28T10:00:13.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="思路">思路</h4><ol>
+<li>取随机数,最大数</li>
+<li>判断随机数是否小于最大数</li>
+<li>如果小于,则调用当前文件,否则结束</li>
+</ol>
+<a id="more"></a>
+<h4 id="代码">代码</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash&#10;#&#33050;&#26412;&#36882;&#24402;&#10;RANGE=10&#10;MAXVAL=9&#10;i=$RANDOM #&#21462;&#38543;&#26426;&#25968;&#10;let &#34;i%=$RANGE&#34; #&#27714;&#20313;&#36816;&#31639;&#10;&#10;if [ $i -lt $MAXVAL ] #&#21028;&#26029;&#22823;&#23567;&#10;then&#10;    echo &#34;i= $i&#34;&#10;    ./$0 &#10;fi&#10;exit 0</span><br></pre></td></tr></table></figure>
+<h4 id="遇到的问题">遇到的问题</h4><ul>
+<li><code>unexpected operator</code>,不存在<code>let</code>方法<blockquote>
+<p>解决方法:sudo dpkg-reconfigure dash   选NO</p>
+</blockquote>
+</li>
+<li>无法进行调用<blockquote>
+<p>解决方法: chmod a+x XX.sh</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="思路">思路</h4><ol>
+<li>取随机数,最大数</li>
+<li>判断随机数是否小于最大数</li>
+<li>如果小于,则调用当前文件,否则结束</li>
+</ol>]]>
+    
+    </summary>
+    
+      <category term="bash" scheme="http://taohaoge.github.io/tags/bash/"/>
+    
+      <category term="递归" scheme="http://taohaoge.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+      <category term="bash" scheme="http://taohaoge.github.io/categories/bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[bash交互式与非交互式]]></title>
+    <link href="http://taohaoge.github.io/2014/12/25/bash%E4%BA%A4%E4%BA%92%E5%BC%8F%E4%B8%8E%E9%9D%9E%E4%BA%A4%E4%BA%92%E5%BC%8F/"/>
+    <id>http://taohaoge.github.io/2014/12/25/bash交互式与非交互式/</id>
+    <published>2014-12-25T01:24:22.000Z</published>
+    <updated>2015-11-28T10:00:13.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="运行方式">运行方式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while:&#10;do&#10;&#9;read line&#10;    eval &#34;$line&#34;&#10;done</span><br></pre></td></tr></table></figure>
+<p>通过循环,使用read来实现i交互操作<br><a id="more"></a></p>
+<h3 id="检测方式">检测方式</h3><ul>
+<li><p>通过提示符 <code>$PS1</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if [ -z $PS1 ] #&#27809;&#26377;&#25552;&#31034;&#31526;&#10;then&#10;&#9;# &#38750;&#20132;&#20114;&#10;    ...&#10;else&#10;&#9;# &#20132;&#20114;&#24335;&#10;    ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过判断<code>$-</code>变量中是否出现选项<code>i</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">case $i in&#10;&#34;i&#34;) #&#20132;&#20114;&#24335;&#10;;;&#10;*) #&#38750;&#20132;&#20114;&#24335;&#10;;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>脚本可以使用-i 选项强制在交互式模式下运行或脚本头用#!/bin/bash -i<br>注意这样可能会引起脚本古怪的行为或当没有错误出现时也会显示错误信息</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="运行方式">运行方式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while:&#10;do&#10;&#9;read line&#10;    eval &#34;$line&#34;&#10;done</span><br></pre></td></tr></table></figure>
+<p>通过循环,使用read来实现i交互操作<br>]]>
+    
+    </summary>
+    
+      <category term="bash" scheme="http://taohaoge.github.io/tags/bash/"/>
+    
+      <category term="交互式" scheme="http://taohaoge.github.io/tags/%E4%BA%A4%E4%BA%92%E5%BC%8F/"/>
+    
+      <category term="bash" scheme="http://taohaoge.github.io/categories/bash/"/>
+    
+  </entry>
+  
+</feed>
